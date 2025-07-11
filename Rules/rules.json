@@ -1,0 +1,132 @@
+﻿{
+    "structures": [
+        {
+            "name": "Invoices",
+            "priority": 1,
+            "rules": {
+                "OR": [
+                    "invoice",
+                    "receipt",
+                    "bill"
+                ]
+            },
+            "metadata": {
+                "comment": "Financial documents"
+            },
+            "dynamic_folders": {
+                "by_year": true,
+                "by_month": true
+            },
+            "subfolders": [
+                {
+                    "name": "Paid",
+                    "rules": {
+                        "OR": [
+                            "paid",
+                            "settled"
+                        ]
+                    }
+                },
+                {
+                    "name": "Pending",
+                    "rules": {
+                        "OR": [
+                            "unpaid",
+                            "due"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Contracts",
+            "priority": 2,
+            "rules": {
+                "AND": [
+                    "contract",
+                    {
+                        "OR": [
+                            "client",
+                            "supplier"
+                        ]
+                    }
+                ]
+            },
+            "metadata": {
+                "comment": "Signed agreements"
+            },
+            "dynamic_folders": {
+                "by_year": true
+            }
+        },
+        {
+            "name": "Presentations",
+            "priority": 3,
+            "rules": {
+                "OR": [
+                    ".ppt",
+                    ".pptx",
+                    "presentation"
+                ]
+            },
+            "dynamic_folders": {
+                "by_extension": true
+            }
+        },
+        {
+            "name": "Drafts",
+            "priority": 99,
+            "rules": {
+                "OR": [
+                    "draft",
+                    "work-in-progress"
+                ]
+            },
+            "metadata": {
+                "comment": "Documents in progress"
+            }
+        },
+        {
+            "name": "Reports",
+            "priority": 4,
+            "rules": {
+                "AND": [
+                    {
+                        "OR": [
+                            "report",
+                            "summary"
+                        ]
+                    },
+                    {
+                        "NOT": [
+                            "draft",
+                            "old"
+                        ]
+                    }
+                ]
+            },
+            "metadata": {
+                "comment": "Final reports"
+            },
+            "dynamic_folders": {
+                "by_year": true,
+                "by_month": true
+            }
+        },
+        {
+            "name": "Regex_Matching",
+            "priority": 10,
+            "rules": {
+                "OR": [
+                    "^INV-[0-9]{4,}$"
+                ]
+            },
+            "metadata": {
+                "comment": "Files starting with 'INV-' followed by 4+ digits"
+            },
+            "dynamic_folders": {
+                "by_year": true
+            }
+        }
+    ]
+}

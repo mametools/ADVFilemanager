@@ -1,0 +1,59 @@
+{
+    "paths": {
+        "source": "C:\\Documenti_source",
+        "destination": "C:\\Users\\MYUSER\\Documenti_destinazione",
+        "logPath": "C:\\Users\\MYUSER\\Documenti_destinazione\\Log\\organizer_log.txt",
+        "reorgLogPath": "C:\\Users\\MYUSER\\Documenti_destinazione\\Log\\Log_Destination_reorg.txt",
+        "downloadSource": "C:\\Users\\MYUSER\\Downloads",
+        "downloadProcessedRootName": "_Downloaded_Documents",
+        "rules_file": "C:\\Users\\MYUSER\\script\\ADVFilemanager\\Rules\\rules.json"
+    },
+    "debugSettings": {
+        "enableDebugLog": true,
+        "debugLogPath": "C:\\Users\\MYUSER\\Documenti_destinazione\\Log\\debug_log.txt"
+    },
+    "settings": {
+        "caseInsensitiveMatch": true,
+        "logVerbosity": "VERBOSE",
+        "duplicateHandling": "CreateShortcut",
+        "cultureInfo": "it-IT"
+    },
+    "retrySettings": {
+       "maxRetries": 3,
+       "delaySeconds": 2
+    },
+    "fileFilters": {
+        "extensions": ["pdf", "doc", "docx", "xls", "xlsx", "xlsm", "ppt", "pptx", "rtf", "txt", "csv", "jpg", "png", "zip", "rar", "7z", "ps1", "psm1", "bat"],
+        "minSizeKB": 0,
+        "maxSizeMB": 5000
+    },
+    "folderRules": {
+        "ignoredSourceFolders": ["*_Archive", "*_Backup", "Temp", "Cache", ".*", "_*", "System Volume Information"],
+        "preserveStructureFolders": ["Legal Documents", "Archive\\*", "WORK Sheet", "*#"],
+        "reorgIgnoredFolders": [
+            "_Downloaded_Documents",
+            "Log",
+            "Duplicated Files",
+            "_Reports"
+        ],
+        "reorgIgnoredFilePatterns": [
+            "Lista_files.txt",
+	    "Report_*.html",
+            "File_Listing_*.txt",
+            "Ignored_Files_*.csv",
+            "Error_Files_*.csv",
+            "Deleted_Duplicates_*.csv",
+            "OnlineOnly_Skipped_Files_*.csv",
+            "Renamed_Files_*.csv",
+            "Moved_Files_*.csv",
+            "Shortcuts_Created_*.csv",
+            "DiskSpace_Check_Failed_*.csv",
+            "Reorg_Conflicts_*.csv"
+        ]
+    },
+    "renameRules": [
+        {"find": " \\(\\d+\\)", "replace": ""},
+        {"find": "_\\(\\d+\\)", "replace": ""},
+        {"find": "Bozza", "replace": "DRAFT"}
+    ]
+}
